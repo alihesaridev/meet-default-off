@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 0 0 5px 0;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+    
+    .setting-group {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .setting-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .radio-option:hover {
+      background-color: #f0f0f0;
+    }
+    
+    .radio-option input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #4285f4;
+    }
+    
+    .radio-option label {
+      cursor: pointer;
+      font-size: 13px;
+      color: #555;
+      flex: 1;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-top: 16px;
+      background: #e8f5e8;
+      color: #2d5a2d;
+      border: 1px solid #c3e6c3;
+    }
+    
+    .status.error {
+      background: #ffeaea;
+      color: #8b0000;
+      border-color: #ffb3b3;
+    }
+    
+    .method-description {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: #f8f9fa;
+      border-radius: 4px;
+      border-left: 3px solid #4285f4;
+    }
+    
+    .method-description small {
+      color: #666;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="title">Meet Default Off</h1>
+    <p class="subtitle">Configure your default camera & microphone settings</p>
+  </div>
+  
+  <div class="setting-group">
+    <label class="setting-label">📹 Camera Default Setting</label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="camera-block" name="camera" value="block">
+        <label for="camera-block">Block (Ask permission)</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="camera-allow" name="camera" value="allow">
+        <label for="camera-allow">Allow (Auto-enable)</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="setting-group">
+    <label class="setting-label">🎤 Microphone Default Setting</label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="mic-block" name="microphone" value="block">
+        <label for="mic-block">Block (Ask permission)</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="mic-allow" name="microphone" value="allow">
+        <label for="mic-allow">Allow (Auto-enable)</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="setting-group">
+    <label class="setting-label">⌨️ Blocking Method</label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="method-permissions" name="blockingMethod" value="permissions">
+        <label for="method-permissions">Permissions (Recommended)</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="method-keyboard" name="blockingMethod" value="keyboard">
+        <label for="method-keyboard">Keyboard Shortcuts</label>
+      </div>
+    </div>
+    <div class="method-description">
+      <small>
+        <strong>Permissions:</strong> Blocks access at browser level<br>
+        <strong>Keyboard Shortcuts:</strong> Uses Ctrl+E (video) and Ctrl+D (mic) to toggle
+      </small>
+    </div>
+  </div>
+  
+  <div id="status" class="status" style="display: none;"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
