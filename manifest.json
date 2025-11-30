@@ -4,6 +4,9 @@
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["contentSettings", "storage", "tabs"],
+  "icons": {
+    "128": "icon-128.png"
+  },
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     {
@@ -14,6 +17,9 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Meet Default Off Settings"
+    "default_title": "Meet Default Off Settings",
+    "default_icon": {
+      "128": "icon-128.png"
+    }
   }
 }
